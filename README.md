@@ -1,6 +1,6 @@
 # VelvetJS
 
-Landing site for the VelvetJS ecosystem, hosted via GitHub Pages at [velvetjs.github.io](https://velvetjs.github.io).
+Landing site for the VelvetJS ecosystem, hosted via GitHub Pages at [poojagohel.github.io](https://poojagohel.github.io).
 
 ## Packages
 
