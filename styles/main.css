@@ -2,99 +2,295 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #0d0819;
+  --bg-alt: #150e2b;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-border: rgba(167, 139, 250, 0.18);
+  --text: #ede9fe;
+  --text-muted: #a99fc7;
+  --purple-50: #f5f3ff;
+  --purple-300: #c4b5fd;
+  --purple-400: #a78bfa;
+  --purple-500: #8b5cf6;
+  --purple-600: #7c3aed;
+  --purple-700: #6d28d9;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(60% 45% at 15% 0%, rgba(139, 92, 246, 0.22), transparent 60%),
+    radial-gradient(50% 40% at 100% 10%, rgba(124, 58, 237, 0.18), transparent 60%),
+    radial-gradient(70% 50% at 50% 100%, rgba(109, 40, 217, 0.16), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
+
+a {
+  color: inherit;
+}
+
+/* Nav */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 24px 0;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.nav-brand .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple-400), var(--purple-600));
+  box-shadow: 0 0 14px var(--purple-500);
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--purple-300);
+}
+
+/* Hero */
 
 .hero {
   text-align: center;
-  padding: 80px 20px;
+  padding: 72px 20px 48px;
+}
+
+.hero .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--purple-300);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 24px;
 }
 
 .hero h1 {
-  font-size: 56px;
-  margin-bottom: 16px;
+  font-size: clamp(40px, 7vw, 64px);
+  margin: 0 0 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 20%, var(--purple-300) 60%, var(--purple-500) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .hero p {
   font-size: 18px;
   max-width: 640px;
   margin: 0 auto 32px;
-  color: #94a3b8;
+  color: var(--text-muted);
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .hero-buttons a {
   display: inline-block;
-  margin: 8px;
-  padding: 12px 24px;
+  padding: 13px 26px;
   border-radius: 12px;
-  background: #2563eb;
-  color: white;
   text-decoration: none;
   font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.hero-buttons a:first-child {
+  background: linear-gradient(135deg, var(--purple-500), var(--purple-700));
+  color: white;
+  box-shadow: 0 8px 24px -8px rgba(139, 92, 246, 0.6);
+}
+
+.hero-buttons a:first-child:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -8px rgba(139, 92, 246, 0.75);
+}
+
+.hero-buttons a:not(:first-child) {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--text);
+}
+
+.hero-buttons a:not(:first-child):hover {
+  border-color: var(--purple-400);
+  transform: translateY(-2px);
 }
 
 .stats {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 16px;
-  margin-top: 32px;
-  color: #94a3b8;
-  font-size: 14px;
+  gap: 12px;
+  margin-top: 40px;
 }
+
+.stats div {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Package cards */
 
 .packages {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
-  padding: 40px 24px 80px;
+  padding: 16px 24px 80px;
   max-width: 1200px;
   margin: auto;
 }
 
 .card {
-  background: #111827;
-  border: 1px solid #1e293b;
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
   border-radius: 20px;
-  padding: 24px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 60% at 0% 0%, rgba(139, 92, 246, 0.15), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple-400);
+  box-shadow: 0 16px 40px -16px rgba(139, 92, 246, 0.45);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .card h2 {
   margin-top: 0;
+  font-size: 20px;
+  position: relative;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.6;
+  position: relative;
 }
 
 .actions {
   margin-top: 20px;
+  position: relative;
+  display: flex;
+  gap: 12px;
 }
 
 .actions a {
-  margin-right: 12px;
-  color: #60a5fa;
+  color: var(--purple-300);
   text-decoration: none;
   font-weight: 600;
+  font-size: 14px;
+  padding: 8px 0;
+  transition: color 0.2s ease;
+}
+
+.actions a:hover {
+  color: var(--purple-50);
+}
+
+.actions a:first-child {
+  padding: 8px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--purple-500), var(--purple-700));
+  color: white;
+}
+
+.actions a:first-child:hover {
+  color: white;
+  opacity: 0.9;
 }
 
 pre {
-  background: #111827;
-  border: 1px solid #1e293b;
+  background: var(--bg-alt);
+  border: 1px solid var(--surface-border);
   border-radius: 12px;
   padding: 16px;
   overflow-x: auto;
 }
 
+code {
+  color: var(--purple-300);
+}
+
 footer {
   text-align: center;
-  padding: 32px 20px;
-  border-top: 1px solid #1e293b;
-  color: #94a3b8;
+  padding: 40px 20px;
+  border-top: 1px solid var(--surface-border);
+  color: var(--text-muted);
 }
 
 footer a {
-  color: #60a5fa;
+  color: var(--purple-300);
   text-decoration: none;
   font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--purple-50);
 }
