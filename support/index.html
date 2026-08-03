@@ -62,17 +62,29 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poojagohel.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Support", "item": "https://poojagohel.github.io/support/" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <nav class="nav">
     <a href="/" class="nav-brand"><span class="dot"></span> VelvetJS</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu"><span></span></label>
     <div class="nav-links">
       <a href="/#packages">Packages</a>
+      <a href="/#why">Why VelvetJS</a>
       <a href="/support/">Support</a>
       <a href="/contact/">Contact</a>
-      <a href="/sponsor/">Sponsor</a>
-      <a href="https://github.com/PoojaGohel">GitHub</a>
+      <a href="https://github.com/PoojaGohel" class="nav-cta">GitHub</a>
     </div>
   </nav>
 
@@ -86,8 +98,8 @@
 
     <h2>Get help</h2>
     <div class="method-grid">
-      <section class="card">
-        <h2>📚 Docs &amp; Quick Start</h2>
+      <section class="card reveal">
+        <h3>📚 Docs &amp; Quick Start</h3>
         <p>Each package's demo page has install instructions and a copy-paste quick start example.</p>
         <div class="actions">
           <a href="/velvet-writer/">Velvet Writer</a>
@@ -96,8 +108,8 @@
         </div>
       </section>
 
-      <section class="card">
-        <h2>🐛 GitHub Issues</h2>
+      <section class="card reveal">
+        <h3>🐛 GitHub Issues</h3>
         <p>Bug reports and feature requests are tracked publicly per package, so fixes are visible to everyone.</p>
         <div class="actions">
           <a href="https://github.com/PoojaGohel/velvet-writer/issues">Writer Issues</a>
@@ -106,8 +118,8 @@
         </div>
       </section>
 
-      <section class="card">
-        <h2>📧 Direct Contact</h2>
+      <section class="card reveal">
+        <h3>📧 Direct Contact</h3>
         <p>For anything that doesn't fit GitHub — questions, partnerships, or private concerns.</p>
         <div class="actions">
           <a href="/contact/">Contact Page</a>
@@ -117,22 +129,22 @@
 
     <h2>Frequently asked questions</h2>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>Where do I report a bug?</h3>
       <p>Open an issue on the relevant package's GitHub repository so it's tracked alongside the source code and visible to other users hitting the same problem.</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>Which React versions are supported?</h3>
       <p>All VelvetJS packages support React 18 and React 19, with TypeScript types included out of the box.</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>Is VelvetJS free to use?</h3>
       <p>Yes — every package is open-source and MIT licensed, free for personal and commercial projects.</p>
     </div>
 
-    <div class="faq-item">
+    <div class="faq-item reveal">
       <h3>How fast will I get a response?</h3>
       <p>VelvetJS is maintained by a single person in their spare time. There's no SLA, but GitHub issues and emails are checked regularly.</p>
     </div>
@@ -148,5 +160,6 @@
     </div>
   </footer>
 
+  <script src="../scripts/main.js"></script>
 </body>
 </html>

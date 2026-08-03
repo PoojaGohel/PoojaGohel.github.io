@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Velvet Image Dropzone – Drag-and-Drop Image Uploader for React</title>
+  <title>Velvet Image Dropzone – React Drag-and-Drop Image Uploader</title>
 
   <meta name="description" content="Velvet Image Dropzone is a lightweight React drag-and-drop image upload component with previews, cropping, multi-upload, and validation, built for React 18 & 19." />
   <meta name="keywords" content="react image upload, react dropzone, drag and drop react, image cropper react, file upload react component, velvet-image-dropzone" />
@@ -42,27 +42,51 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poojagohel.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Velvet Image Dropzone", "item": "https://poojagohel.github.io/velvet-image-dropzone/" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <nav class="nav">
     <a href="/" class="nav-brand"><span class="dot"></span> VelvetJS</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu"><span></span></label>
     <div class="nav-links">
       <a href="/#packages">Packages</a>
+      <a href="/#why">Why VelvetJS</a>
       <a href="/support/">Support</a>
       <a href="/contact/">Contact</a>
-      <a href="/sponsor/">Sponsor</a>
-      <a href="https://github.com/PoojaGohel">GitHub</a>
+      <a href="https://github.com/PoojaGohel" class="nav-cta">GitHub</a>
     </div>
   </nav>
 
   <div class="hero">
+    <span class="eyebrow">🖼️ Velvet Image Dropzone</span>
     <h1>Velvet Image Dropzone</h1>
-    <p>Modern drag-and-drop image uploader with preview support.</p>
+    <p>Modern drag-and-drop image uploader with preview support. Drop a few images below — it's live.</p>
   </div>
 
   <main class="content">
-    <img src="../assets/dropzone-demo.png" alt="Velvet Image Dropzone" style="width:100%; border-radius:16px;" />
+
+    <div class="demo-panel">
+      <div class="demo-panel-inner">
+        <div class="demo-dropzone" id="dropzone" tabindex="0">
+          <div class="icon">📤</div>
+          <p><strong>Drag &amp; drop images here</strong>, or click to browse</p>
+        </div>
+        <input type="file" id="dropzone-input" accept="image/*" multiple hidden />
+        <div class="demo-preview-grid" id="dropzone-previews"></div>
+      </div>
+    </div>
+    <p class="demo-caption">Previews render entirely in your browser — nothing is uploaded anywhere.</p>
 
     <h2>Install</h2>
 
@@ -86,5 +110,54 @@ export default function App() {
     </div>
   </footer>
 
+  <script src="../scripts/main.js"></script>
+  <script>
+    (function () {
+      var zone = document.getElementById("dropzone");
+      var input = document.getElementById("dropzone-input");
+      var previews = document.getElementById("dropzone-previews");
+
+      function addFiles(files) {
+        Array.prototype.forEach.call(files, function (file) {
+          if (!file.type.startsWith("image/")) return;
+          var img = document.createElement("img");
+          img.src = URL.createObjectURL(file);
+          img.alt = file.name;
+          img.loading = "lazy";
+          previews.appendChild(img);
+        });
+      }
+
+      zone.addEventListener("click", function () {
+        input.click();
+      });
+
+      zone.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") input.click();
+      });
+
+      input.addEventListener("change", function () {
+        addFiles(input.files);
+      });
+
+      ["dragenter", "dragover"].forEach(function (evt) {
+        zone.addEventListener(evt, function (e) {
+          e.preventDefault();
+          zone.classList.add("is-dragover");
+        });
+      });
+
+      ["dragleave", "drop"].forEach(function (evt) {
+        zone.addEventListener(evt, function (e) {
+          e.preventDefault();
+          zone.classList.remove("is-dragover");
+        });
+      });
+
+      zone.addEventListener("drop", function (e) {
+        addFiles(e.dataTransfer.files);
+      });
+    })();
+  </script>
 </body>
 </html>

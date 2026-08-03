@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VelvetJS – Beautiful React UI Components (Editor, Dropzone, QR Code)</title>
+  <title>VelvetJS – React Editor, Image Upload & QR Components</title>
 
   <meta name="description" content="VelvetJS is a free, open-source suite of React components: a Notion-style rich text editor, a drag-and-drop image dropzone, and a customizable QR code generator. TypeScript-ready, Tailwind-friendly, React 18 & 19 compatible." />
   <meta name="keywords" content="react components, react rich text editor, react image upload, react qr code generator, velvet-writer, velvet-image-dropzone, velvet-qr, open source react ui library, tailwind react components, typescript react components" />
@@ -87,19 +87,21 @@
 
   <nav class="nav">
     <a href="/" class="nav-brand"><span class="dot"></span> VelvetJS</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu"><span></span></label>
     <div class="nav-links">
       <a href="#packages">Packages</a>
+      <a href="#why">Why VelvetJS</a>
       <a href="/support/">Support</a>
       <a href="/contact/">Contact</a>
-      <a href="/sponsor/">Sponsor</a>
-      <a href="https://github.com/PoojaGohel">GitHub</a>
+      <a href="https://github.com/PoojaGohel" class="nav-cta">GitHub</a>
     </div>
   </nav>
 
   <header class="hero">
     <span class="eyebrow">✨ Open-source React UI kit</span>
     <h1>VelvetJS</h1>
-    <p>Beautiful React components for editing, uploading, and generating content.</p>
+    <p>Beautiful React components for editing, uploading, and generating content — free, open-source, and built for modern React apps.</p>
 
     <div class="hero-buttons">
       <a href="https://www.npmjs.com/package/velvet-writer">Install Velvet Writer</a>
@@ -112,34 +114,115 @@
       <div>🎨 Tailwind Friendly</div>
       <div>🧩 Open Source</div>
     </div>
+
+    <div class="badge-row">
+      <img src="https://img.shields.io/npm/v/velvet-writer?color=8b5cf6&label=velvet-writer" alt="velvet-writer npm version" width="140" height="22" loading="lazy" />
+      <img src="https://img.shields.io/npm/v/velvet-image-dropzone?color=8b5cf6&label=velvet-image-dropzone" alt="velvet-image-dropzone npm version" width="200" height="22" loading="lazy" />
+      <img src="https://img.shields.io/npm/v/velvet-qr?color=8b5cf6&label=velvet-qr" alt="velvet-qr npm version" width="120" height="22" loading="lazy" />
+      <img src="https://img.shields.io/badge/license-MIT-8b5cf6" alt="MIT license" width="80" height="22" loading="lazy" />
+    </div>
   </header>
 
-  <main class="packages" id="packages">
+  <main>
 
-    <section class="card">
-      <h2>✍️ Velvet Writer</h2>
-      <p>Notion-style rich text editor for React and Tailwind CSS.</p>
-      <div class="actions">
-        <a href="/velvet-writer/">Live Demo</a>
-        <a href="https://www.npmjs.com/package/velvet-writer">npm</a>
+    <section class="packages" id="packages">
+
+      <section class="card reveal">
+        <div class="card-icon">✍️</div>
+        <h2>Velvet Writer</h2>
+        <p>Notion-style rich text editor for React and Tailwind CSS, with slash commands and markdown shortcuts.</p>
+        <div class="actions">
+          <a href="/velvet-writer/">Live Demo</a>
+          <a href="https://www.npmjs.com/package/velvet-writer">npm</a>
+        </div>
+      </section>
+
+      <section class="card reveal">
+        <div class="card-icon">🖼️</div>
+        <h2>Velvet Image Dropzone</h2>
+        <p>Modern drag-and-drop image uploader with instant previews, cropping, and validation.</p>
+        <div class="actions">
+          <a href="/velvet-image-dropzone/">Live Demo</a>
+          <a href="https://www.npmjs.com/package/velvet-image-dropzone">npm</a>
+        </div>
+      </section>
+
+      <section class="card reveal">
+        <div class="card-icon">🔳</div>
+        <h2>Velvet QR</h2>
+        <p>Customizable QR code generator with gradients, dot styles, logos, and PNG/SVG export.</p>
+        <div class="actions">
+          <a href="/velvet-qr/">Live Demo</a>
+          <a href="https://www.npmjs.com/package/velvet-qr">npm</a>
+        </div>
+      </section>
+
+    </section>
+
+    <section class="section" id="why">
+      <div class="section-header reveal">
+        <span class="eyebrow">💜 Why VelvetJS</span>
+        <h2>Built for developers who care about polish</h2>
+        <p>Every component ships production-ready: typed, themeable, and designed to feel native in your app rather than bolted on.</p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature reveal">
+          <div class="icon">🪶</div>
+          <h3>Lightweight by default</h3>
+          <p>Zero or near-zero runtime dependencies, so you're not shipping megabytes of JavaScript for a text editor.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="icon">🔒</div>
+          <h3>Type-safe</h3>
+          <p>Full TypeScript definitions ship with every package — autocomplete and type checking out of the box.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="icon">🎨</div>
+          <h3>Themeable</h3>
+          <p>Tailwind-friendly class names and CSS variables make restyling components straightforward, not a fight.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="icon">🌗</div>
+          <h3>Dark mode ready</h3>
+          <p>Components are designed with light and dark themes in mind from day one, not retrofitted later.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="icon">📄</div>
+          <h3>MIT licensed</h3>
+          <p>Free for personal and commercial projects, with no attribution requirements or hidden paywalls.</p>
+        </div>
+        <div class="feature reveal">
+          <div class="icon">🛠️</div>
+          <h3>Actively maintained</h3>
+          <p>Bugs and feature requests are tracked in the open on GitHub, with regular npm releases.</p>
+        </div>
       </div>
     </section>
 
-    <section class="card">
-      <h2>🖼️ Velvet Image Dropzone</h2>
-      <p>Modern drag-and-drop image uploader with preview support.</p>
-      <div class="actions">
-        <a href="/velvet-image-dropzone/">Live Demo</a>
-        <a href="https://www.npmjs.com/package/velvet-image-dropzone">npm</a>
+    <section class="section">
+      <div class="section-header reveal">
+        <span class="eyebrow">🚀 Get started</span>
+        <h2>Up and running in three steps</h2>
+        <p>No config wizards, no build plugins to install — just npm install and import.</p>
       </div>
-    </section>
 
-    <section class="card">
-      <h2>🔳 Velvet QR</h2>
-      <p>Customizable QR code generator for React applications.</p>
-      <div class="actions">
-        <a href="/velvet-qr/">Live Demo</a>
-        <a href="https://www.npmjs.com/package/velvet-qr">npm</a>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">1</div>
+          <h3>Install the package</h3>
+          <p>Run <code>npm i velvet-writer</code> (or dropzone / qr) in your React project.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">2</div>
+          <h3>Import the component</h3>
+          <p>Drop it into any React 18 or 19 app — no provider or wrapper setup required.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">3</div>
+          <h3>Style to match your app</h3>
+          <p>Override the included CSS variables or Tailwind classes to fit your design system.</p>
+        </div>
       </div>
     </section>
 
@@ -154,5 +237,6 @@
     </div>
   </footer>
 
+  <script src="scripts/main.js"></script>
 </body>
 </html>

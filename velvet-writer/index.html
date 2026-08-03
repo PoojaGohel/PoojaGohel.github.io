@@ -42,27 +42,55 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poojagohel.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Velvet Writer", "item": "https://poojagohel.github.io/velvet-writer/" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <nav class="nav">
     <a href="/" class="nav-brand"><span class="dot"></span> VelvetJS</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu"><span></span></label>
     <div class="nav-links">
       <a href="/#packages">Packages</a>
+      <a href="/#why">Why VelvetJS</a>
       <a href="/support/">Support</a>
       <a href="/contact/">Contact</a>
-      <a href="/sponsor/">Sponsor</a>
-      <a href="https://github.com/PoojaGohel">GitHub</a>
+      <a href="https://github.com/PoojaGohel" class="nav-cta">GitHub</a>
     </div>
   </nav>
 
   <div class="hero">
+    <span class="eyebrow">✍️ Velvet Writer</span>
     <h1>Velvet Writer</h1>
-    <p>Beautiful Notion-style editor for React applications.</p>
+    <p>Beautiful Notion-style editor for React applications. Try it below — it's live.</p>
   </div>
 
   <main class="content">
-    <img src="../assets/writer-demo.png" alt="Velvet Writer" style="width:100%; border-radius:16px;" />
+
+    <div class="demo-panel">
+      <div class="demo-panel-inner">
+        <div class="demo-toolbar" id="writer-toolbar">
+          <button type="button" data-cmd="bold" title="Bold"><b>B</b></button>
+          <button type="button" data-cmd="italic" title="Italic"><i>I</i></button>
+          <button type="button" data-cmd="underline" title="Underline"><u>U</u></button>
+          <button type="button" data-cmd="strikeThrough" title="Strikethrough"><s>S</s></button>
+          <button type="button" data-cmd="insertUnorderedList" title="Bullet list">•</button>
+          <button type="button" data-cmd="formatBlock" data-value="H2" title="Heading">H2</button>
+          <button type="button" data-cmd="formatBlock" data-value="BLOCKQUOTE" title="Quote">❝</button>
+        </div>
+        <div class="demo-editable" id="writer-editable" contenteditable="true" data-placeholder="Type something, then select text and click a toolbar button…"></div>
+      </div>
+    </div>
+    <p class="demo-caption">Live preview built with contenteditable — the real package ships slash commands, tables, and image resize too.</p>
 
     <h2>Install</h2>
 
@@ -86,5 +114,19 @@ export default function App() {
     </div>
   </footer>
 
+  <script src="../scripts/main.js"></script>
+  <script>
+    (function () {
+      var toolbar = document.getElementById("writer-toolbar");
+      var editable = document.getElementById("writer-editable");
+
+      toolbar.addEventListener("click", function (e) {
+        var btn = e.target.closest("button");
+        if (!btn) return;
+        editable.focus();
+        document.execCommand(btn.dataset.cmd, false, btn.dataset.value || null);
+      });
+    })();
+  </script>
 </body>
 </html>

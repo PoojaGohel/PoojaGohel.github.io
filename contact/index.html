@@ -29,17 +29,29 @@
   <meta name="twitter:image" content="https://poojagohel.github.io/assets/og-image.png" />
 
   <link rel="stylesheet" href="../styles/main.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://poojagohel.github.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://poojagohel.github.io/contact/" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <nav class="nav">
     <a href="/" class="nav-brand"><span class="dot"></span> VelvetJS</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu"><span></span></label>
     <div class="nav-links">
       <a href="/#packages">Packages</a>
+      <a href="/#why">Why VelvetJS</a>
       <a href="/support/">Support</a>
       <a href="/contact/">Contact</a>
-      <a href="/sponsor/">Sponsor</a>
-      <a href="https://github.com/PoojaGohel">GitHub</a>
+      <a href="https://github.com/PoojaGohel" class="nav-cta">GitHub</a>
     </div>
   </nav>
 
@@ -52,7 +64,7 @@
   <main class="content">
     <div class="method-grid">
 
-      <section class="card">
+      <section class="card reveal">
         <h2>📧 Email</h2>
         <p>Best for general questions, partnership inquiries, or anything not tied to a specific bug.</p>
         <div class="actions">
@@ -60,7 +72,7 @@
         </div>
       </section>
 
-      <section class="card">
+      <section class="card reveal">
         <h2>🐛 Report a Bug</h2>
         <p>Found an issue in a specific package? Open a GitHub issue on that package's repo so it's tracked alongside the code.</p>
         <div class="actions">
@@ -70,7 +82,7 @@
         </div>
       </section>
 
-      <section class="card">
+      <section class="card reveal">
         <h2>💡 Feature Request</h2>
         <p>Have an idea for VelvetJS? Open a GitHub discussion or issue and tag it as an enhancement.</p>
         <div class="actions">
@@ -90,5 +102,6 @@
     </div>
   </footer>
 
+  <script src="../scripts/main.js"></script>
 </body>
 </html>
