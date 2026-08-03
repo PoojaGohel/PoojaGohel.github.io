@@ -813,3 +813,55 @@ footer a:hover {
   font-size: 13px;
   text-align: center;
 }
+
+/* Floating support button */
+
+.support-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--purple-500), var(--purple-700));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 10px 30px -8px rgba(139, 92, 246, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.support-fab .support-fab-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.support-fab:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px -6px rgba(139, 92, 246, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+}
+
+.support-fab .support-fab-label {
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .support-fab {
+    right: 14px;
+    bottom: 14px;
+    padding: 12px;
+  }
+
+  .support-fab .support-fab-label {
+    display: none;
+  }
+}
